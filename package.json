@@ -7,7 +7,7 @@
     "scripts": {
         "dev": "vite",
         "format": "npx prettier --write . & npx prettier --write ./dev/**/*.pug",
-        "build": "vite build && npx prettier --write ./build/**/*.html",
+        "build": "[my-framework] build --output public",
         "preview": "vite preview"
     },
     "browserslist": [

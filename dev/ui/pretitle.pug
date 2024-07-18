@@ -1,0 +1,16 @@
+-
+    const defaultpreTitleProps = {
+        text: 'text',
+        centered: 'false'
+    }
+
+mixin pretitle(props = defaultpreTitleProps)
+    -
+        const checkProps = {
+            text: props.text ? props.text : defaultpreTitleProps.text,
+            centered: props.centered ? props.centered : defaultpreTitleProps.centered,
+        }
+    if(checkProps.centered === 'false')
+        .pretitle= checkProps.text
+    else
+        .pretitle.centered= checkProps.text

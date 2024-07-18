@@ -1,0 +1,17 @@
+-
+    const defaultBtnPlayProps = {
+        type: 'button',
+        classes: '',
+    }
+
+mixin btnPlay(props = defaultBtnPlayProps, ...dataset)
+    -
+        const checkProps = {
+            type: props.type ? props.type : defaultBtnPlayProps.type,
+            classes: props.classes ? props.classes : defaultBtnPlayProps.classes,
+        }
+
+    if (checkProps.type === 'button')
+        button.btnPlay(class=`${checkProps.classes}`)&attributes(...dataset)
+            include ../assets/icon-system/icon-play
+

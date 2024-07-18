@@ -1,0 +1,38 @@
+.pretitle {
+    position: relative;
+    color: $black-300;
+    text-transform: uppercase;
+    font-size: vw(16);
+    padding-left: vw(15);
+    margin-bottom: vw(12);
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: vw(8);
+        height: vw(8);
+        border-radius: 999px;
+        background: $black-300;
+    }
+
+    &.centered {
+        text-align: center;
+        width: fit-content;
+        margin: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .pretitle {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .pretitle {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,68 @@
+.input {
+    position: relative;
+
+    &.disabled {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    &--password {
+        .input__field {
+            padding: 0 56px 0 16px;
+        }
+    }
+
+    &--error {
+        .input {
+            &__field {
+                border-color: red;
+            }
+
+            &__message {
+                display: inline-block;
+                color: red;
+            }
+        }
+    }
+
+    &--show-message .input__message {
+        display: inline-block;
+    }
+
+    &__field {
+        height: 48px;
+        width: 100%;
+        padding: 0 16px;
+        font-size: 16px;
+        outline: none;
+        background-color: transparent;
+        border: none;
+        border: 1px solid;
+        border-color: #bebebe;
+        color: #fff;
+        border-radius: 5px;
+        transition: border-color $transition;
+
+        &:focus {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        &::placeholder {
+            color: #d2d2d2;
+            font-size: 16px;
+        }
+    }
+
+    &__message {
+        display: none;
+        font-size: 12px;
+        color: #d2d2d2;
+        transition: color $transition;
+    }
+
+    &__title {
+        display: inline-block;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+}

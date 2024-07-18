@@ -1,0 +1,17 @@
+-
+    const defaultbtnBigProps = {
+        classes: '',
+        text: '',
+    }
+
+mixin btnBig(props = defaultbtnBigProps, ...dataset)
+    -
+        const checkProps = {
+            classes: props.classes ? props.classes : defaultbtnBigProps.classes,
+            text: props.text ? props.text : defaultbtnBigProps.text,
+        }
+    a.btnBig(class=`${checkProps.classes}` href='javascript:void(0);')
+        span.btnBig__text= checkProps.text
+        span.btnBig__icon
+            block
+

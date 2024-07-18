@@ -1,0 +1,54 @@
+.btnPlay {
+    width: vw(80);
+    height: vw(80);
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+    backdrop-filter: blur(40px);
+    background-color: rgba(255, 255, 255, 0.10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
+    transition: $transition;
+
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 54%;
+        transform: translate(-50%, -50%);
+        width: vw(32);
+        height: vw(32);
+        transition: $transition;
+    }
+
+    &:hover {
+        background-color: $primary-purple;
+
+        svg {
+            transform: translate(-50%, -50%) scale (1.2);
+        }
+    }
+
+    &.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 1024px) {
+    .btnPlay {
+        width: 62px;
+        height: 62px;
+
+        svg {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}

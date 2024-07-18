@@ -1,0 +1,35 @@
+-
+    const defaultTextareaProps = {
+        type: 'text', 
+        name: 'textarea',
+        title: 'Название поля',
+        placeholder: 'Введите текст', 
+        disabled: false,
+        classes: '',
+        messageText: 'Обязательное поле',
+        messageIsShow: false
+    }
+
+mixin textarea(props = defaultTextareaProps)
+    -
+        const checkProps = {
+            type: props.type ? props.type : defaultTextareaProps.type, 
+            name: props.name ? props.name : defaultTextareaProps.name, 
+            title: props.title ? props.title : defaultTextareaProps.title,
+            placeholder: props.placeholder ? props.placeholder : defaultTextareaProps.placeholder, 
+            disabled: props.disabled ? props.disabled : defaultTextareaProps.disabled,
+            classes: props.classes ? props.classes : defaultTextareaProps.classes,
+            messageText: props.messageText ? props.messageText : defaultTextareaProps.messageText,
+            messageIsShow: props.messageIsShow ? props.messageIsShow : defaultTextareaProps.messageIsShow,
+        }
+
+    .textarea(
+        class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''} ${checkProps.messageIsShow ? 'textarea--show-message' : ''}`
+    )
+        span.textarea__title= checkProps.title
+        textarea.textarea__field(
+            type=checkProps.type,
+            name=checkProps.name,
+            placeholder=checkProps.placeholder
+        )
+        span.textarea__message= checkProps.messageText

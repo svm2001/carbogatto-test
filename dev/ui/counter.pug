@@ -1,0 +1,49 @@
+-
+    const defaultCounterProps = {
+        value: 1,
+        min: 1,
+        max: 100,
+        step: 1,
+        disabled: false,
+        classes: ''
+    }
+
+mixin counter(props = defaultCounterProps, ...dataset)
+    -
+        const checkProps = {
+            value: props.value ? props.value : defaultCounterProps.value,
+            min: props.min ? props.min : defaultCounterProps.min, 
+            max: props.max ? props.max : defaultCounterProps.max, 
+            step: props.step ? props.step : defaultCounterProps.step,  
+            disabled: props.disabled ? props.disabled : defaultCounterProps.disabled,
+            classes: props.classes ? props.classes : defaultCounterProps.classes
+        }
+
+    .counter(
+        class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`,
+        data-counter="counter"
+    )&attributes(...dataset)
+        button.counter__btn(
+            type="button",
+            data-counter="remove",
+            aria-label="убрать"
+        )
+            <svg class="counter__icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M18.6828 11.464C18.8059 11.341 18.875 11.174 18.875 11C18.875 10.826 18.8059 10.659 18.6828 10.536C18.5597 10.4129 18.3928 10.3438 18.2187 10.3438H11.6562H3.78125C3.6072 10.3438 3.44028 10.4129 3.31721 10.536C3.19414 10.659 3.125 10.826 3.125 11C3.125 11.174 3.19414 11.341 3.31721 11.464C3.44028 11.5871 3.6072 11.6562 3.78125 11.6562H11.6562H18.2187C18.3928 11.6562 18.5597 11.5871 18.6828 11.464Z" fill="#65676E"/>
+            </svg>
+        input.counter__input(
+            type="number",
+            value=checkProps.value,
+            min=checkProps.min,
+            max=checkProps.max,
+            step=checkProps.step,
+            data-counter="input"
+        )
+        button.counter__btn(
+            type="button",
+            data-counter="add",
+            aria-label="добавить"
+        )
+            <svg class="counter__icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M18.875 11C18.875 11.174 18.8059 11.341 18.6828 11.464C18.5597 11.5871 18.3928 11.6562 18.2187 11.6562H11.6562V18.2187C11.6562 18.3928 11.5871 18.5597 11.464 18.6828C11.341 18.8059 11.174 18.875 11 18.875C10.826 18.875 10.659 18.8059 10.536 18.6828C10.4129 18.5597 10.3437 18.3928 10.3437 18.2187V11.6562H3.78125C3.6072 11.6562 3.44028 11.5871 3.31721 11.464C3.19414 11.341 3.125 11.174 3.125 11C3.125 10.826 3.19414 10.659 3.31721 10.536C3.44028 10.4129 3.6072 10.3437 3.78125 10.3437H10.3437V3.78125C10.3437 3.6072 10.4129 3.44028 10.536 3.31721C10.659 3.19414 10.826 3.125 11 3.125C11.174 3.125 11.341 3.19414 11.464 3.31721C11.5871 3.44028 11.6562 3.6072 11.6562 3.78125V10.3437H18.2187C18.3928 10.3437 18.5597 10.4129 18.6828 10.536C18.8059 10.659 18.875 10.826 18.875 11Z" fill="#65676E"/>
+            </svg>

@@ -1,0 +1,37 @@
+block vars
+
+-
+    const layout = {
+        nav: [
+            {
+                id: 0,
+                name: 'Страницы',
+                href: './index.html'
+            },
+            {
+                id: 1,
+                name: 'UI-kit',
+                href: './ui-kit.html'
+            },
+            {
+                id: 2,
+                name: 'Компоненты',
+                href: './components.html'
+            }
+        ]
+    }
+
+.dev-layout
+    header.dev-layout__header 
+        .m-container
+            a.dev-layout__logo(href="https://vitejs.ru/", target="_blank") 
+                //img(src="./images/vite.svg", alt="logo")
+            nav.dev-layout__nav 
+                ul.list-reset
+                    each item in layout.nav
+                        li(class=`${item.name === props.title ? 'active' : ''}`)
+                            a(href=item.href)= item.name
+    main.dev-layout__main
+        .m-container
+            h1.dev-layout__title= props.title
+            block content

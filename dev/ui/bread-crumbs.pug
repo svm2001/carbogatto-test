@@ -1,0 +1,32 @@
+-
+    const defaultBreadCrumbsProps = {
+        classes: '',
+        items: [
+            {
+                name: 'Главная',
+                link: '#'
+            },
+            {
+                name: 'Страница ...',
+                link: '#'
+            }
+        ]
+    }
+
+mixin bread-crumbs(props = defaultBreadCrumbsProps)
+    -
+        const checkProps = {
+            classes: props.classes ? props.classes : defaultBreadCrumbsProps.classes,
+            items: props.items ? props.items : defaultBreadCrumbsProps.items,
+        }
+
+    .bread-crumbs(class=checkProps.classes)
+        .m-container
+            .bread-crumbs__wrap-list(data-custom-scrollbar)
+                ul.bread-crumbs__list.list-reset
+                    each val, index in checkProps.items
+                        li
+                            if index === checkProps.items.length - 1
+                                span.bread-crumbs__item.bread-crumbs__item--current-page= val.name
+                            else
+                                a.bread-crumbs__item(href=`${val.link}`)= val.name

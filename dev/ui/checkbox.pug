@@ -1,0 +1,31 @@
+-
+    const defaultCheckboxProps = {
+        text: 'Checkbox', 
+        checked: false, 
+        name: '', 
+        value: '',
+        disabled: false,
+        classes: ''
+    }
+
+mixin checkbox(props = defaultCheckboxProps)
+    -
+        const checkProps = {
+            text: props.text ? props.text : defaultCheckboxProps.text, 
+            checked: props.checked ? props.checked : defaultCheckboxProps.checked, 
+            name: props.name ? props.name : defaultCheckboxProps.name,
+            value: props.value ? props.value : defaultCheckboxProps.value, 
+            disabled: props.disabled ? props.disabled : defaultCheckboxProps.disabled,
+            classes: props.classes ? props.classes : defaultCheckboxProps.classes
+        }
+
+    .checkbox(class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`)
+        label.checkbox__label
+            input.checkbox__input(
+                type="checkbox",
+                name=checkProps.name,
+                value=checkProps.value,
+                checked=checkProps.checked
+            )
+            span.checkbox__text= checkProps.text
+            span.checkbox__decore

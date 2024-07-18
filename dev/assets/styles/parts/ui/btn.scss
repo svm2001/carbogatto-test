@@ -1,0 +1,96 @@
+.btn {
+    position: relative;
+    background-image: $base-gradient;
+    color: $base-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    border-radius: vw(999);
+    padding: vw(16) vw(44);
+    transition: $transition;
+
+    &__text {
+        color: $base-white;
+        transition: $transition;
+    }
+
+    &--white {
+        background-color: $base-white;
+        background-image: none;
+        .btn__text {
+            color: $primary-purple;
+        }
+    }
+
+    &--transparent {
+        border: 1px solid $base-white;
+        background: transparent;
+        padding: vw(12) vw(24);
+    }
+}
+
+@media (min-width: 1024px) {
+    .btn:hover {
+        background-color: $base-white;
+        background-image: none;
+
+        .btn__text {
+            color: $primary-purple;
+        }
+    }
+
+    .btn {
+        &--transparent {
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.40);
+                .btn__text {
+                    color: $base-white;
+                }
+            }
+            &.active {
+                background-color: $base-white;
+                .btn__text {
+                    background-image: $base-gradient;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .btn {
+        padding: 16px 44px;
+
+        &__text {
+            font-size: 16px;
+        }
+
+        &--transparent {
+            padding: 10px 24px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .btn {
+        width: 100%;
+        padding: 16px 24px;
+
+        &--transparent {
+            padding: 8px 22px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .btn {
+        &--transparent {
+            padding: 8px 18px;
+        }
+    }
+}

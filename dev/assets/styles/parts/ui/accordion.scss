@@ -1,0 +1,198 @@
+.accordion {
+    padding: vw(40);
+    border-radius: vw(32);
+    background-color: #F4F4F7;
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: vw(20);
+        border-bottom: 1px solid #DADBDE;
+        cursor: pointer;
+        span {
+            font-size: vw(64);
+            font-family: $secondary-font;
+            color: $black-900;
+            line-height: 100%;
+            text-transform: uppercase;
+            transition: $transition;
+        }
+
+        svg {
+            width: vw(36);
+            height: vw(36);
+            transition: $transition;
+            path {
+                transition: $transition;
+            }
+        }
+
+        &:hover {
+            span {
+                background-image: $base-gradient;
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            svg path {
+                stroke: #9A6AFE;
+            }
+        }
+
+        &.not-active svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__body {
+        overflow: hidden;
+        transition: .5s;
+
+        ul {
+            max-width: 66%;
+        }
+
+        li {
+            color: #8A8992;
+            font-size: vw(16);
+            line-height: 133%;
+        }
+
+        p {
+            font-size: vw(16);
+        }
+    }
+
+    &__add {
+        padding-top: vw(24);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        &-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            span {
+                border-radius: vw(43);
+                padding: vw(8) vw(16);
+                background-color: $base-white;
+                color: $black-900;
+                font-size: vw(18);
+                line-height: 110%;
+                font-weight: 100;
+            }
+        }
+    }
+
+    .accordion__add-btn {
+        border: 1px solid transparent;
+        &:hover {
+            border: 1px solid $primary-purple;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .accordion {
+        padding: 30px 60px;
+        border-radius: 32px;
+
+        &__head {
+            padding-bottom: 24px;
+
+            span {
+                font-size: 36px;
+            }
+
+            svg {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        &__body {
+            ul {
+                padding-left: 20px;
+                max-width: 100%;
+            }
+
+            li, p {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 24px;
+                letter-spacing: -0.16px;
+            }
+        }
+
+        &__add {
+            padding-top: 24px;
+        }
+
+        &__add-tags {
+            gap: 16px;
+
+            span {
+                padding: 12px 24px;
+                font-size: 16px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        &__add-btn {
+            height: 50px;
+            width: fit-content;
+            margin-left: 5px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .accordion {
+        padding: 30px;
+
+        &__add-tags span {
+            height: 34px;
+            padding: 8px 16px;
+        }
+
+        &__add-btn {
+            height: 34px;
+            padding: 9px 16px;
+            max-width: 100%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .accordion {
+        padding: 30px 16px;
+        border-radius: 24px;
+
+        &__add {
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        &__add-tags {
+            gap: 8px;
+            span {
+                height: 31px;
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+        &__add-btn {
+            height: 50px;
+            padding: 16px 24px;
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+@import './fonts';
+@import './vars';
+@import './mixins';
+@import './settings';
+@import './classes';
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: $primary-font;
+    font-weight: 400;
+    font-size: vw(16);
+    line-height: 100%;
+    color: $light;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        font-size: 16px;
+    }
+}
+
+html,
+body {
+    width: 100%;
+    background-color: $dark;
+}
+
+@import './parts/layouts';
+@import './parts/components';
+@import './parts/ui';
+@import './parts/modal-windows';
+@import './libs';
+@import './media';

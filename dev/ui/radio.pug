@@ -1,0 +1,31 @@
+-
+    const defaultRadioProps = {
+        text: 'Radio', 
+        checked: false, 
+        name: 'radio', 
+        value: '',
+        disabled: false,
+        classes: ''
+    }
+
+mixin radio(props = defaultRadioProps)
+    -
+        const checkProps = {
+            text: props.text ? props.text : defaultRadioProps.text, 
+            checked: props.checked ? props.checked : defaultRadioProps.checked, 
+            name: props.name ? props.name : defaultRadioProps.name,
+            value: props.value ? props.value : defaultRadioProps.value, 
+            disabled: props.disabled ? props.disabled : defaultRadioProps.disabled,
+            classes: props.classes ? props.classes : defaultRadioProps.classes
+        }
+
+    .radio(class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`)
+        label.radio__label
+            input.radio__input(
+                type="radio",
+                name=checkProps.name,
+                value=checkProps.value,
+                checked=checkProps.checked
+            )
+            span.radio__text= checkProps.text
+            span.radio__decore

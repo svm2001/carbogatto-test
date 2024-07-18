@@ -1,0 +1,126 @@
+.pulse {
+    position: relative;
+    display: flex;
+    align-self: end;
+    margin-right: vw(88);
+    width: vw(160);
+    height: vw(160);
+    border-radius: 999px;
+    background-color: $base-white;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+        transform: scale(1.15);
+    }
+    &:active {
+        transform: scale(1);
+    }
+}
+
+.btnPulse__text {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: vw(16);
+    width: 60%;
+    text-align: center;
+    color: $primary-purple;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+.phone {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    line-height: vw(100);
+    font-size: vw(70);
+    animation: phone 2s ease-in-out infinite;
+}
+
+.phone i {
+    transition: .9s ease;
+}
+
+.pulse .btnPulse__text {
+    opacity: 1;
+    transition: .9s ease;
+}
+
+.pulse .phone i {
+    transform: scale(0);
+    transition: .9s ease;
+}
+
+.pulse:before,
+.pulse:after {
+    position: absolute;
+    content: '';
+    border: 3px solid $base-white;
+    left: vw(-20);
+    right: vw(-20);
+    top: vw(-20);
+    bottom: vw(-20);
+    border-radius: 50%;
+    animation: pulse 2s linear infinite;
+    opacity: 0;
+}
+
+.pulse::after {
+    animation-delay: .6s;
+}
+
+@keyframes phone {
+    0%, 100% {
+        transform: rotate(-20deg);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.3);
+    }
+}
+
+@media (max-width: 1024px) {
+    .pulse {
+        width: 122px;
+        height: 122px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .btnPulse__text {
+        font-size: 14px;
+        line-height: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .pulse {
+        width: 90px;
+        height: 90px;
+    }
+
+    .btnPulse__text {
+        font-size: 10px;
+        line-height: 140%;
+    }
+}

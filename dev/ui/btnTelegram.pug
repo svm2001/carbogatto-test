@@ -1,0 +1,19 @@
+-
+    const defaultBtnPulseProps = {
+        name: 'Написать в Telegram',
+        target: '_blank',
+        classes: '',
+    }
+
+mixin btnPulse(props = defaultBtnPulseProps, ...dataset)
+    -
+        const checkProps = {
+            name: props.name ? props.name : defaultBtnPulseProps.name,
+            target: props.target ? props.target : defaultBtnPulseProps.target,
+            classes: props.classes ? props.classes : defaultBtnPulseProps.classes,
+        }
+
+    a.btnPulse.pulse(link="javascript:void(0);")&attributes(...dataset)
+        span.phone
+            i.fa.fa-phone
+        .btnPulse__text= checkProps.name

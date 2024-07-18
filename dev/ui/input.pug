@@ -1,0 +1,35 @@
+-
+    const defaultInputProps = {
+        type: 'text', 
+        name: 'input',
+        title: 'Название поля',
+        placeholder: 'Введите текст', 
+        disabled: false,
+        classes: '',
+        messageText: 'Обязательное поле',
+        messageIsShow: false
+    }
+
+mixin input(props = defaultInputProps)
+    -
+        const checkProps = {
+            type: props.type ? props.type : defaultInputProps.type, 
+            name: props.name ? props.name : defaultInputProps.name,
+            title: props.title ? props.title : defaultInputProps.title, 
+            placeholder: props.placeholder ? props.placeholder : defaultInputProps.placeholder, 
+            disabled: props.disabled ? props.disabled : defaultInputProps.disabled,
+            classes: props.classes ? props.classes : defaultInputProps.classes,
+            messageText: props.messageText ? props.messageText : defaultInputProps.messageText,
+            messageIsShow: props.messageIsShow ? props.messageIsShow : defaultInputProps.messageIsShow,
+        }
+
+    .input(
+        class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''} ${checkProps.messageIsShow ? 'input--show-message' : ''}`
+    )
+        span.input__title= checkProps.title
+        input.input__field(
+            type=checkProps.type,
+            name=checkProps.name,
+            placeholder=checkProps.placeholder
+        )
+        span.input__message= checkProps.messageText

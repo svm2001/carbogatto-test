@@ -1,0 +1,25 @@
+-
+    const defaultTitleColorProps = {
+        textDefault: 'Title',
+        textColor: 'Title',
+        icon: 'false',
+        classes: ''
+    }
+
+mixin titleColor(props = defaultTitleProps)
+    -
+        const checkProps = {
+            textDefault: props.textDefault ? props.textDefault : defaultTitleColorProps.textDefault,
+            textColor: props.textColor ? props.textColor : defaultTitleColorProps.textColor,
+            icon: props.icon ? props.icon : defaultTitleColorProps.icon,
+            classes: props.classes ? props.classes : defaultTitleColorProps.classes
+        }
+    h2.title.title--h2.title--color
+        span= checkProps.textDefault
+        span= checkProps.textColor
+        if(checkProps.icon === true)
+            span.title--color-icon
+                block
+
+
+

@@ -1,0 +1,12 @@
+{
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "pugBracketSameLine": false,
+    "pugEmptyAttributes": "none",
+    "pugSingleQuote": false,
+    "plugins": ["@prettier/plugin-pug"]
+}

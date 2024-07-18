@@ -1,0 +1,21 @@
+-
+    const defaultModalProps = {
+        id: 'modal',
+        classes: ''
+    }
+
+mixin modal(props = defaultModalProps)
+    -
+        const checkProps = {
+            id: props.id ? props.id : defaultModalProps.id,
+            classes: props.classes ? props.classes : defaultModalProps.classes,
+        }
+
+    .hystmodal.modal(id=checkProps.id, aria-hidden="true", class=checkProps.classes)
+        .hystmodal__wrap
+            .hystmodal__window(role="dialog", aria-modal="true")
+                button.hystmodal__close.btn-reset(data-hystclose)
+                    span.modal__close-icon
+                        include ../assets/icon-system/icon-cross
+                if block
+                    block

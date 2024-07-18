@@ -1,0 +1,36 @@
+@import '_vars';
+@import '_mixins';
+
+.page {
+    flex: 1 0 auto;
+}
+
+.hidden {
+    display: none;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.title-reset {
+    margin: 0;
+}
+
+.link-reset {
+    text-decoration: none;
+}
+
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.btn-reset {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+}

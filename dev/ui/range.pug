@@ -1,0 +1,42 @@
+-
+    const defaultRangeProps = {
+        name: 'Площадь',
+        start: 100,
+        end: 300,
+        min: 41,
+        max: 430,
+        disabled: false,
+        classes: ''
+    }
+
+mixin range(props = defaultRangeProps, ...dataset)
+    -
+        const checkProps = {
+            name: props.name ? props.name : defaultRangeProps.name,
+            start: props.start ? props.start : defaultRangeProps.start,
+            end: props.end ? props.end : defaultRangeProps.end,
+            min: props.min ? props.min : defaultRangeProps.min, 
+            max: props.max ? props.max : defaultRangeProps.max, 
+            disabled: props.disabled ? props.disabled : defaultRangeProps.disabled,
+            classes: props.classes ? props.classes : defaultRangeProps.classes
+        }
+
+    .range(
+        class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`,
+        data-range="range"
+    )&attributes(...dataset)
+        span.range__name= checkProps.name
+        .range__inner
+            .range__block-values
+                span.range__value.range__value--min от
+                    b(data-range="value-min") 0 м<sup>2</sup>
+                span.range__decore
+                span.range__value.range__value--max до
+                    b(data-range="value-max") 0 м<sup>2</sup>
+            .range__range(
+                data-range="range-line",
+                data-range-start=checkProps.start,
+                data-range-end=checkProps.end,
+                data-range-min=checkProps.min,
+                data-range-max=checkProps.max
+            )

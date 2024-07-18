@@ -1,0 +1,54 @@
+-
+    const defaultSelectProps = {
+        name: 'Название селекта',
+        activeIndex: 0,
+        disabled: false,
+        classes: '',
+        options: [
+            'Опция 1',
+            'Опция 2',
+            'Опция 3',
+            'Опция 4',
+            'Опция 5',
+        ]
+    }
+
+mixin select(props = defaultSelectProps)
+    -
+        const checkProps = {
+            name: props.name ? props.name : defaultSelectProps.name,
+            activeIndex: props.activeIndex ? props.activeIndex : defaultSelectProps.activeIndex,
+            disabled: props.disabled ? props.disabled : defaultSelectProps.disabled,
+            classes: props.classes ? props.classes : defaultSelectProps.classes,
+            options: props.options ? props.options : defaultSelectProps.options,
+        }
+
+    .select(
+        class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`,
+        data-select="main",
+        data-select-value="Москва"
+    )
+        span.select__name= checkProps.name
+        .select__field
+            .select__head(data-select="head")
+                span.select__value(data-select="value")= checkProps.options[checkProps.activeIndex]
+                svg.select__icon(
+                    xmlns="http://www.w3.org/2000/svg",
+                    width="24",
+                    height="25",
+                    viewBox="0 0 24 25",
+                    fill="none"
+                )
+                    path(
+                        d="M16 10.5L12 14.5L8 10.5",
+                        stroke="#fff",
+                        stroke-width="1.2",
+                        stroke-linecap="square"
+                    )
+            .select__body(data-select="body", data-custom-scrollbar)
+                ul.select__list.list-reset
+                    each val, index in checkProps.options
+                        if index === checkProps.activeIndex
+                            li.active= val
+                        else
+                            li= val

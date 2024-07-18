@@ -1,0 +1,24 @@
+:root {
+
+    //fonts
+    --primary-font: MessinaSans, sans-serif;
+    --secondary-font: BrutalType, sans-serif;
+
+    // colors
+
+    --dark: #181616;
+    --light-dark: #393A3A;
+    --light: #F1F1F1;
+    --border: #393A3A;
+
+    --transtition-time: .3s
+}
+
+$primary-font: var(--primary-font);
+$secondary-font: var(--secondary-font);
+
+$dark: var(--dark);
+$light-dark: var(--light-dark);
+$light: var(--light);
+$border: var(--border);
+$transtition-time: var(--transtition-time);

@@ -1,0 +1,98 @@
+.preloader
+    transition: .5s
+    pointer-events: none
+    user-select: none
+    position: fixed
+    z-index: 5
+    top: 0
+    left: 0
+    min-height: 100dvh
+    background: $dark
+    width: 100vw
+    display: flex
+    flex-direction: column
+    gap: 10px
+    justify-content: center
+    align-items: center
+
+    -moz-animation-duration: 1000ms
+    -webkit-animation-duration: 1000ms
+    -ms-animation-duration: 1000ms
+    animation-duration: 1000ms
+    -moz-animation-timing-function: ease-in-out
+    -webkit-animation-timing-function: ease-in-out
+    -ms-animation-timing-function: ease-in-out
+    animation-timing-function: ease-in-out
+    -moz-animation-fill-mode: forwards
+    -webkit-animation-fill-mode: forwards
+    -ms-animation-fill-mode: forwards
+    animation-fill-mode: forwards
+
+    svg
+        width: 300px
+        height: 100%
+
+    .runner
+        width: 300px
+        height: 5px
+        display: inline-block
+        position: relative
+        overflow: hidden
+        border-right: 999px
+        &::after
+            content: ''
+            width: 96px
+            border-right: 999px
+            overflow: hidden
+            height: 5px
+            background: #FFF
+            position: absolute
+            top: 0
+            left: 0
+            box-sizing: border-box
+            animation: hitZak 1.5s ease-in-out infinite alternate
+
+
+    @keyframes hitZak
+        0%
+            left: 0
+            transform: translateX(-1%)
+
+        100%
+            left: 100%
+            transform: translateX(-99%)
+
+.preloader.fade-out
+    -moz-animation-name: fadeOut
+    -webkit-animation-name: fadeOut
+    -ms-animation-name: fadeOut
+    animation-name: fadeOut
+
+
+@keyframes fadeOut
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+@-moz-keyframes fadeOut
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+
+
+@-webkit-keyframes fadeOut
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+
+
+@-ms-keyframes fadeOut
+    from
+        opacity: 1
+    to
+        opacity: 0

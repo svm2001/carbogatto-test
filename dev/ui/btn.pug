@@ -1,0 +1,51 @@
+-
+    const defaultBtnProps = {
+        type: 'button',
+        name: 'Button',
+        link: 'javascript:void(0);',
+        target: '_self',
+        icon: false,
+        positionIcon: 'left',
+        disabled: false,
+        classes: '',
+        burger: 'false'
+    }
+
+mixin btn(props = defaultBtnProps, ...dataset)
+    -
+        const checkProps = {
+            type: props.type ? props.type : defaultBtnProps.type,
+            name: props.name ? props.name : defaultBtnProps.name,
+            link: props.link ? props.link : defaultBtnProps.link,
+            target: props.target ? props.target : defaultBtnProps.target,
+            icon: props.icon ? props.icon : defaultBtnProps.icon,
+            positionIcon: props.positionIcon ? props.positionIcon : defaultBtnProps.positionIcon,
+            disabled: props.disabled ? props.disabled : defaultBtnProps.disabled,
+            classes: props.classes ? props.classes : defaultBtnProps.classes,
+            burger: props.burger ? props.burger : defaultBtnProps.burger,
+        }
+
+    if (checkProps.type === 'button')
+        button.btn(
+            type=checkProps.type,
+            target,
+            class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`)&attributes(...dataset)
+                span.btn__text= checkProps.name
+                if(checkProps.burger === 'true')
+                    .burger
+                        span
+                        span
+                        span
+    else if (checkProps.type === 'link')
+        a.btn(
+            href=checkProps.link,
+            target=checkProps.target === "_self" ? "" : checkProps.target,
+            class=checkProps.disabled ? `${checkProps.classes} disabled`: checkProps.classes)&attributes(...dataset)
+                span.btn__text= checkProps.name
+                if(checkProps.burger === 'true')
+                    .burger
+                        span
+                        span
+                        span
+    else
+        p Button not found

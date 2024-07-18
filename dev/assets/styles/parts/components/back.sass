@@ -1,0 +1,50 @@
+.back
+    position: fixed
+    z-index: 2
+    bottom: 12px
+    display: flex
+    align-items: flex-end
+    min-width: 200px
+
+    button
+        color: $light
+        font-size: vw(11.5)
+        text-transform: uppercase
+        font-family: $secondary-font
+        display: flex
+        align-items: center
+        gap: 12px
+        border: none
+        background: transparent
+        transition: $transtition-time
+        cursor: pointer
+
+        svg
+            transition: $transtition-time
+            min-width: vw(20)
+            min-height: vw(20)
+
+        &:hover
+            opacity: .5
+
+            svg
+                transform: translateX(-5px)
+
+@media (max-width: 1400px)
+    .back
+        min-width: 120px
+        bottom: 12px
+
+@media (max-width: 1200px)
+    .back
+        width: 100%
+        padding-top: 12px
+        padding-bottom: 12px
+        bottom: 0
+        background: $dark
+        button
+            font-size: 11px
+        button:hover
+            opacity: 1
+            svg
+                transform: none !important

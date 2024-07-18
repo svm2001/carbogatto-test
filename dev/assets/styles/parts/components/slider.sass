@@ -1,0 +1,424 @@
+.slider
+    padding-left: 200px
+
+    &__inner
+        height: calc(100dvh - 40px)
+        position: relative
+        border: 1px solid $light-dark
+        padding: vw(36) 0 0 0
+        overflow: hidden
+        width: calc(100vw - 240px)
+
+    &__nav
+        position: fixed
+        top: vw(36)
+        transform: translateX(vw(24))
+        display: flex
+        align-items: center
+        gap: vw(24)
+        padding-bottom: vw(24)
+        background-color: $dark
+
+        &-item
+            border: none
+            background: transparent
+            font-size: vw(11)
+            font-family: $secondary-font
+            color: $light
+            transition: $transtition-time
+            opacity: .5
+
+            &.active
+                opacity: 1
+
+    &__slides
+        display: flex
+        align-items: flex-start
+        padding-top: vw(38)
+        height: 100%
+
+        &-section
+            display: flex
+            height: 100%
+
+        &-item
+            position: relative
+            height: 100%
+            display: flex
+            flex-direction: column
+            gap: vw(130)
+            min-width: vw(410)
+            max-width: vw(410)
+            border-left: 1px solid $light-dark
+            border-bottom: none
+            padding: 0 vw(24)
+            transition: .7s ease-in-out
+
+
+            &.inactive
+                opacity: 0
+                transform: scale(.75)
+
+            &.main
+                border-left: 1px solid transparent
+                .slider__slides-item-subtitle
+                    opacity: .5
+                    transform: translateY(0)
+
+                .slider__slides-item-link
+                    opacity: 1
+                    visibility: visible
+
+                .slider__slides-item-poster
+                    min-height: vw(290)
+                    max-height: vw(290)
+
+            &--hero
+                border: none!important
+                min-width: vw(410)
+                max-width: vw(410)
+                padding-left: vw(24)
+                display: flex
+                flex-direction: column
+                justify-content: center
+                gap: vw(20)
+                transition: 1s ease-in-out
+
+                .slider__slides-item-year
+                    font-size: vw(11)
+                    font-family: $secondary-font
+                    color: $light
+                    opacity: .5
+
+                .slider__slides-item-title
+                    font-size: vw(28)
+                    line-height: vw(40)
+                    color: $light
+
+                    -webkit-line-clamp: 4
+                    max-height: 100%
+
+            &--separator
+                min-width: vw(410)
+                max-width: vw(410)
+                border: none!important
+
+            &-tags
+                display: flex
+                gap: vw(6)
+                margin-bottom: 12px
+
+                span
+                    text-transform: uppercase
+                    font-size: vw(11)
+                    font-family: $secondary-font
+                    color: $light
+                    opacity: .5
+                    text-align: center
+
+            &-date
+                font-size: vw(11)
+                font-family: $secondary-font
+                color: $light
+                text-transform: uppercase
+
+            &-title
+                display: -webkit-box
+                font-size: vw(16)
+                line-height: vw(24)
+                margin-bottom: vw(20)
+
+                -webkit-line-clamp: 2
+                width: max-content
+                max-width: 100%
+                overflow: hidden
+                text-overflow: ellipsis
+                -webkit-box-orient: vertical
+
+            &-subtitle
+                opacity: 0
+                line-height: vw(24)
+                min-height: vw(72)
+                max-height: vw(72)
+                overflow: hidden
+                transform: translateY(-25%)
+                transition: opacity .7s ease-in-out, transform .7s ease-in-out
+                transition-delay: .7s
+
+                display: -webkit-box
+                -webkit-line-clamp: 3
+                text-overflow: ellipsis
+                -webkit-box-orient: vertical
+
+            &-link
+                opacity: 0
+                visibility: hidden
+                transition: opacity .7s ease-in-out, visibility .7s ease-in-out
+                transition-delay: .7s
+
+            &-link
+                font-family: $secondary-font
+                transition: $transtition-time
+                transition-delay: .7s
+                display: flex
+                align-items: center
+                gap: vw(8)
+                text-transform: uppercase
+                font-size: vw(11)
+
+                svg
+                    transition: $transtition-time
+                    min-width: vw(20)
+                    max-width: vw(20)
+
+            &-picture
+                position: relative
+                &-label
+                    position: absolute
+                    z-index: 1
+                    display: none
+                    align-items: flex-end
+                    border-radius: 3px
+                    font-size: 11px
+                    text-transform: uppercase
+                    bottom: 13px
+                    right: 10px
+                    padding: 6px 9px
+                    background: rgba(0,0,0,.5)
+                    color: $light
+
+                    svg
+                        min-width: 20px
+                        max-width: 20px
+
+
+            &-poster
+                min-width: 100%
+                max-width: 100%
+                min-height: vw(253)
+                max-height: vw(253)
+                object-fit: cover
+                object-position: 66%
+                transition: .7s ease-in-out
+                transition-delay: .7s
+
+            &--last
+                border: none!important
+                .slider__slides-item-subtitle
+                    opacity: .5
+                    max-height: 100%
+                    transform: translateY(0)
+                    overflow: hidden
+
+                    display: -webkit-box
+                    -webkit-line-clamp: 6
+                    text-overflow: ellipsis
+                    -webkit-box-orient: vertical
+
+
+@media (max-width: 1400px)
+    .slider
+        padding-left: 120px
+
+        &__inner
+            padding: 24px 0 0 0
+            width: calc(100vw - 160px)
+
+        &__nav
+            position: fixed
+            top: 36px
+            transform: translateX(18px)
+            gap: 12px
+            padding-bottom: 18px
+
+        &__slides
+            &-item
+                gap: vw(120)
+                &--hero
+                    gap: 12px
+
+@media (max-width: 1200px)
+    .slider
+        padding: 0
+
+        &__inner
+            height: 100%
+            position: relative
+            border: none
+            overflow: visible
+            padding: 0
+            width: 100%
+
+        &__nav
+            position: sticky
+            top: 0
+            left: 0
+            transform: none
+            gap: 12px
+            padding-bottom: 16px
+            padding-top: 16px
+            z-index: 2
+
+            &-item
+                border: none
+                background: transparent
+                font-size: 11px
+
+                &:hover
+                    opacity: .5
+                &.active
+                    opacity: 1!important
+
+        &__slides
+            display: grid
+            gap: 80px 20px
+            grid-template-columns: 1fr 1fr 1fr 1fr
+            padding-top: 24px
+            height: 100%
+            padding-bottom: 90px
+
+            &-item
+                &--hero, &--separator
+                    display: none
+                position: relative
+                height: 100%
+                display: flex
+                flex-direction: column
+                gap: 32px
+                min-width: 100%
+                max-width: 100%
+                border-left: none
+                border-bottom: none
+                padding: 0
+                transition: .7s ease-in-out
+
+                &-tags
+                    display: flex
+                    gap: 4px
+                    margin-bottom: 8px
+
+                    span
+                        font-size: 11px
+
+                &-date
+                    font-size: 11px
+
+                &-title
+                    font-size: 16px
+                    line-height: 24px
+                    margin-bottom: 30px
+
+                &-subtitle
+                    margin: 0
+                    margin-top: 16px
+                    opacity: .5
+                    font-size: 16px
+                    line-height: 24px
+                    min-height: 72px
+                    max-height: 72px
+                    overflow: hidden
+                    transform: none
+                    transition: none
+
+                &-link
+                    display: none
+
+                &-link
+                    font-family: $secondary-font
+                    transition: $transtition-time
+                    transition-delay: .7s
+                    display: flex
+                    align-items: center
+                    gap: vw(8)
+                    text-transform: uppercase
+                    font-size: vw(11)
+
+                    svg
+                        transition: $transtition-time
+                        min-width: vw(20)
+                        max-width: vw(20)
+
+                    &:hover
+                        opacity: .5
+                        svg
+                            transform: translateX(50%) rotate(45deg)
+
+                &-picture
+                    &-label
+                        display: flex
+
+                &-poster
+                    min-width: 100%
+                    max-width: 100%
+                    min-height: 253px
+                    max-height: 253px
+                    object-fit: cover
+                    object-position: 66%
+                    transition: .7s ease-in-out
+                    transition-delay: .7s
+
+                &--last
+                    border: none!important
+                    .slider__slides-item-subtitle
+                        opacity: .5
+                        min-height: 100%
+                        max-height: 100%
+                        transform: translateY(0)
+
+@media (max-width: 992px)
+    .slider
+        &__slides
+            grid-template-columns: 1fr 1fr 1fr
+
+@media (max-width: 768px)
+    .slider
+        &__slides
+            grid-template-columns: 1fr 1fr
+
+@media (max-width: 680px)
+    .slider
+        &__nav-item
+            margin: 0px 3px
+            display: block
+            padding: 0
+            font-size: 11px
+            &:nth-child(1)
+                margin-left: 0
+
+        &__slides
+            background: $dark
+            grid-template-columns: 1fr
+            gap: 0
+            padding-bottom: 50vh
+
+            &-item
+                transition: left 0s, top 0s, opacity .7s ease!important
+                padding-top: 60px
+                max-width: calc(100vw - 40px) !important
+                min-width: calc(100vw - 40px) !important
+                width: calc(100vw - 40px) !important
+                padding-bottom: 24px
+                min-height: 100%
+                max-height: 100%
+                background: $dark
+
+                &-poster
+                    max-width: calc(100vw - 40px) !important
+                    min-width: calc(100vw - 40px) !important
+                    width: calc(100vw - 40px) !important
+
+                &:nth-of-type(1)
+                    min-height: 45dvh !important
+                    max-height: 45dvh !important
+
+                &--hero
+                    padding-top: 50px
+                    display: flex
+                    justify-content: flex-start
+
+                    .slider__slides-item-year
+                        font-size: 11px
+
+                    .slider__slides-item-title
+                        font-size: 24px
+                        line-height: 32px

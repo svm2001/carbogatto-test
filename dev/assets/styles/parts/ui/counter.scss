@@ -1,0 +1,76 @@
+.counter {
+    position: relative;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    grid-column-gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    height: 42px;
+    width: 150px;
+    border-radius: 5px;
+    padding: 4px;
+    background-color: #fff;
+
+    &.disabled {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    &__input,
+    &__btn {
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+    }
+
+    &__input {
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+        transition: color $transition;
+
+        &[type='number']::-webkit-outer-spin-button,
+        &[type='number']::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        &[type='number'] {
+            -moz-appearance: textfield;
+        }
+
+        &[type='number']:hover,
+        &[type='number']:focus {
+            -moz-appearance: number-input;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        height: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #c0c0c0;
+        transition: background-color $transition;
+
+        &:active {
+            background-color: #fff;
+        }
+
+        &:disabled {
+            cursor: default;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+
+    &__icon {
+        width: 21px;
+        height: 21px;
+    }
+}
